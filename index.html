@@ -573,7 +573,7 @@
 
        <div>
          <label for="signupCode">Your 4-digit Code (choose a unique one)</label>
-         <input id="signupCode" type="text" maxlength="8" autocomplete="off" inputmode="numeric" placeholder="AB12">
+         <input id="signupCode" type="text" maxlength="8" autocomplete="off" inputmode="numeric" placeholder="1234">
        </div>
 
        <div>
@@ -1045,7 +1045,7 @@ signupForm.addEventListener("submit", async (e) => {
  }
 
  if (code.length !== 4) {
-   signupStatus.textContent = "Code must be exactly 4 characters (A-Z / 0-9). Example: AB12";
+   signupStatus.textContent = "Code must be exactly 4 characters (A-Z / 0-9). Example: 1234";
    signupStatus.classList.add("error");
    return;
  }
