@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Rockhounding For Beginners - The Original - Rock Exchange</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <style>
+   /* ===== RESET & BASE ===== */
+   * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+   }
+
+   body {
+     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+     background: linear-gradient(135deg, #f5ebe0 0%, #e3d5ca 100%);
+     color: #3e2723;
+     line-height: 1.6;
+     min-height: 100vh;
+     padding: 20px 10px;
+   }
+
+   .container {
+     max-width: 1100px;
+     width: 100%;
+     margin: 0 auto;
+     padding: 0 16px;
+   }
+
+   /* ===== HEADER ===== */
+   h1 {
+     text-align: center;
+     color: #4a3520;
+     font-size: 32px;
+     font-weight: 700;
+     margin-bottom: 8px;
+     letter-spacing: -0.5px;
+   }
+
+   p.subtitle {
+     text-align: center;
+     font-size: 15px;
+     color: #6d4c41;
+     margin-bottom: 30px;
+   }
+
+   h2 {
+     color: #5d4037;
+     font-size: 22px;
+     font-weight: 600;
+     margin-bottom: 16px;
+     padding-bottom: 10px;
+     border-bottom: 2px solid #d7ccc8;
+   }
+
+   h3 {
+     color: #5d4037;
+     font-size: 18px;
+     font-weight: 600;
+     margin: 20px 0 12px 0;
+   }
+
+   /* ===== CARDS ===== */
+   .card {
+     background: #ffffff;
+     border-radius: 16px;
+     padding: 28px;
+     margin-bottom: 24px;
+     box-shadow: 0 4px 16px rgba(62, 39, 35, 0.08), 0 1px 4px rgba(62, 39, 35, 0.04);
+     border: 1px solid #efebe9;
+   }
+
+   /* ===== FORM ELEMENTS ===== */
+   label {
+     display: block;
+     font-size: 16px;
+     font-weight: 500;
+     color: #4e342e;
+     margin-bottom: 8px;
+   }
+
+   input[type="text"],
+   input[type="password"],
+   select,
+   textarea {
+     width: 100%;
+     padding: 14px 16px;
+     font-size: 17px;
+     font-family: 'Roboto', sans-serif;
+     border: 2px solid #d7ccc8;
+     border-radius: 10px;
+     background: #fafafa;
+     color: #3e2723;
+     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+   }
+
+   input[type="text"]:focus,
+   input[type="password"]:focus,
+   select:focus,
+   textarea:focus {
+     outline: none;
+     border-color: #8d6e63;
+     background: #ffffff;
+     box-shadow: 0 0 0 4px rgba(141, 110, 99, 0.12);
+   }
+
+   textarea {
+     min-height: 120px;
+     resize: vertical;
+     font-family: 'Courier New', monospace;
+     font-size: 15px;
+   }
+
+   ::placeholder {
+     color: #a1887f;
+   }
+
+   /* ===== BUTTONS ===== */
+   button {
+     background: #6d4c41;
+     border: none;
+     color: #ffffff;
+     padding: 14px 28px;
+     border-radius: 10px;
+     font-size: 16px;
+     font-weight: 600;
+     font-family: 'Roboto', sans-serif;
+     cursor: pointer;
+     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+     box-shadow: 0 3px 8px rgba(109, 76, 65, 0.25);
+     min-height: 48px;
+     margin-top: 8px;
+     margin-right: 8px;
+   }
+
+   button:hover {
+     background: #5d4037;
+     transform: translateY(-1px);
+     box-shadow: 0 5px 14px rgba(109, 76, 65, 0.35);
+   }
+
+   button:active {
+     transform: translateY(0);
+     box-shadow: 0 2px 6px rgba(109, 76, 65, 0.3);
+   }
+
+   button:disabled {
+     opacity: 0.5;
+     cursor: not-allowed;
+     transform: none;
+     box-shadow: none;
+   }
+
+   .btn-secondary {
+     background: #558b2f;
+     box-shadow: 0 3px 8px rgba(85, 139, 47, 0.25);
+   }
+
+   .btn-secondary:hover {
+     background: #33691e;
+     box-shadow: 0 5px 14px rgba(85, 139, 47, 0.35);
+   }
+
+   .btn-danger {
+     background: #c62828;
+     box-shadow: 0 3px 8px rgba(198, 40, 40, 0.25);
+   }
+
+   .btn-danger:hover {
+     background: #b71c1c;
+     box-shadow: 0 5px 14px rgba(198, 40, 40, 0.35);
+   }
+
+   .btn-small {
+     padding: 8px 14px;
+     font-size: 14px;
+     min-height: 36px;
+     margin-top: 0;
+     margin-right: 6px;
+   }
+
+   /* ===== CODE ROW (Inline form elements) ===== */
+   .code-row {
+     display: flex;
+     gap: 12px;
+     flex-wrap: wrap;
+     align-items: center;
+     justify-content: center;
+     margin-top: 12px;
+   }
+
+   .code-row label {
+     font-size: 16px;
+     margin-bottom: 0;
+   }
+
+   .code-row input {
+     width: auto;
+     min-width: 180px;
+   }
+
+   /* ===== ADDRESS GRID ===== */
+   .address-grid {
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     gap: 16px;
+     margin-top: 16px;
+     margin-bottom: 16px;
+   }
+
+   .address-grid label {
+     font-size: 15px;
+   }
+
+   .address-grid input,
+   .address-grid select {
+     width: 100%;
+   }
+
+   /* ===== STATUS MESSAGES ===== */
+   .status {
+     margin-top: 16px;
+     min-height: 20px;
+     font-size: 16px;
+     text-align: center;
+     font-weight: 500;
+   }
+
+   .status.error {
+     color: #c62828;
+   }
+
+   .status.success {
+     color: #2e7d32;
+   }
+
+   /* ===== RESULT CARD ===== */
+   .result-card {
+     margin-top: 20px;
+     background: #f3e5d8;
+     border-radius: 12px;
+     padding: 20px;
+     border: 2px solid #d7ccc8;
+     font-size: 16px;
+     line-height: 1.7;
+   }
+
+   .result-card strong {
+     color: #bf5c00;
+     font-weight: 600;
+   }
+
+   /* ===== SMALL NOTES ===== */
+   .small-note,
+   .admin-small-note {
+     font-size: 14px;
+     color: #6d4c41;
+     margin-top: 12px;
+     text-align: center;
+     line-height: 1.5;
+   }
+
+   .admin-small-note {
+     text-align: left;
+   }
+
+   /* ===== TABLES ===== */
+   .list-table {
+     width: 100%;
+     border-collapse: collapse;
+     margin-top: 16px;
+     font-size: 15px;
+     background: #fafafa;
+     border-radius: 10px;
+     overflow: hidden;
+     border: 1px solid #efebe9;
+   }
+
+   .list-table th,
+   .list-table td {
+     padding: 12px 14px;
+     text-align: left;
+     vertical-align: top;
+     border-bottom: 1px solid #efebe9;
+   }
+
+   .list-table th {
+     background: #f3e5d8;
+     font-weight: 600;
+     color: #4e342e;
+     font-size: 15px;
+     text-transform: uppercase;
+     letter-spacing: 0.5px;
+   }
+
+   .list-table tbody tr:last-child td {
+     border-bottom: none;
+   }
+
+   .list-table tbody tr:hover {
+     background: #fef8f3;
+   }
+
+   /* ===== BADGES ===== */
+   .badge {
+     display: inline-block;
+     padding: 5px 12px;
+     border-radius: 20px;
+     font-size: 13px;
+     font-weight: 600;
+     letter-spacing: 0.3px;
+   }
+
+   .badge-approved {
+     background: #c8e6c9;
+     color: #1b5e20;
+   }
+
+   .badge-not-approved {
+     background: #ffccbc;
+     color: #bf360c;
+   }
+
+   .clickable {
+     cursor: pointer;
+     transition: transform 0.1s ease;
+   }
+
+   .clickable:hover {
+     transform: scale(1.05);
+   }
+
+   /* ===== ADMIN HEADER ===== */
+   .admin-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     gap: 12px;
+     flex-wrap: wrap;
+     margin-bottom: 20px;
+   }
+
+   .admin-header h2 {
+     margin-bottom: 0;
+     padding-bottom: 0;
+     border-bottom: none;
+   }
+
+   /* ===== PREVIEW TABLE ROW SELECTION ===== */
+   .preview-row {
+     cursor: pointer;
+     transition: background-color 0.2s ease;
+   }
+
+   .preview-row-selected {
+     background: #fff3e0 !important;
+     border-left: 4px solid #ef6c00;
+   }
+
+   /* ===== ANIMATIONS ===== */
+   .fade-in {
+     animation: fadeIn 0.4s ease forwards;
+   }
+
+   @keyframes fadeIn {
+     from {
+       opacity: 0;
+       transform: translateY(8px);
+     }
+     to {
+       opacity: 1;
+       transform: translateY(0);
+     }
+   }
+
+   /* ===== FORM SECTIONS ===== */
+   #signupForm > div {
+     margin-bottom: 18px;
+   }
+
+   #signupIntro {
+     text-align: center;
+     margin-bottom: 20px;
+   }
+
+   #signupCode {
+     width: 180px !important;
+     max-width: 100%;
+     text-align: center;
+     letter-spacing: 3px;
+     font-weight: 600;
+     font-size: 18px;
+   }
+
+   /* ===== RESPONSIVE ===== */
+   @media (max-width: 720px) {
+     h1 {
+       font-size: 26px;
+     }
+
+     h2 {
+       font-size: 20px;
+     }
+
+     .card {
+       padding: 20px;
+     }
+
+     .address-grid {
+       grid-template-columns: 1fr;
+       gap: 12px;
+     }
+
+     .code-row {
+       justify-content: stretch;
+       flex-direction: column;
+     }
+
+     .code-row input,
+     .code-row button {
+       width: 100%;
+     }
+
+     .list-table {
+       display: block;
+       overflow-x: auto;
+       -webkit-overflow-scrolling: touch;
+     }
+
+     button {
+       width: 100%;
+       margin-right: 0;
+     }
+
+     .btn-small {
+       width: auto;
+       display: inline-block;
+     }
+   }
+
+   /* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+   input[type="text"]:focus,
+   input[type="password"]:focus,
+   select:focus,
+   button:focus {
+     outline: 3px solid #8d6e63;
+     outline-offset: 2px;
+   }
+
+   /* Remove <br> tags in forms (handled by block-level labels) */
+   #signupForm br,
+   .address-grid br {
+     display: none;
+   }
+
+   /* Better spacing for form elements */
+   #signupForm label,
+   .address-grid label {
+     display: block;
+     margin: 0 0 8px !important;
+     line-height: 1.3;
+   }
+
+   #signupForm input,
+   #signupForm select,
+   #signupForm textarea,
+   .address-grid input,
+   .address-grid select {
+     display: block;
+     width: 100%;
+     max-width: 100%;
+   }
+ </style>
+</head>
+
+<body autocomplete="off">
+<div class="container">
+ <h1>🪨 Rockhounding For Beginners</h1>
+ <p class="subtitle">The Original Rock Exchange</p>
+
+ <!-- Card 1: Reveal OR Sign-up (toggled by settings) -->
+ <div class="card">
+   <!-- Reveal section (shown AFTER assignments are generated) -->
+   <div id="revealSection" style="display:none;">
+     <h2>1. Reveal Your Match</h2>
+     <p class="small-note" style="margin-top:0; margin-bottom: 16px;">
+       Enter the same 4-digit code you used when signing up to see who you are sending your rocks to.
+     </p>
+     <div class="code-row">
+       <label for="revealCodeInput">Your code:</label>
+       <input id="revealCodeInput" type="text" maxlength="8" autocomplete="off" inputmode="numeric" placeholder="1234" style="width:180px;">
+       <button id="revealBtn" type="button">✨ Reveal My Match</button>
+     </div>
+     <div id="revealStatus" class="status"></div>
+     <div id="revealResultCard" class="result-card" style="display:none;"></div>
+
+     <!-- Tracking section (visible after a successful reveal) -->
+     <div id="trackingSection" style="display:none; margin-top:24px;">
+       <h3 style="font-size: 18px; margin-top: 0;">Submit Your Tracking Number</h3>
+       <p class="small-note" style="margin-bottom: 16px;">
+         After you have mailed your box, enter your tracking number below so the organizer can confirm and refund your deposit.
+       </p>
+       <div class="code-row">
+         <label for="trackingInput">Tracking #:</label>
+         <input id="trackingInput" type="text" autocomplete="off" placeholder="e.g. 9400 1234 5678 9000 0000 00" style="min-width:280px;">
+         <button id="submitTrackingBtn" class="btn-secondary" type="button">📦 Submit Tracking</button>
+       </div>
+       <div id="trackingStatus" class="status"></div>
+       <div id="incomingTrackingDisplay" class="small-note" style="margin-top:12px;"></div>
+     </div>
+   </div>
+
+   <!-- Signup + deposit section (shown BEFORE assignments are generated) -->
+   <div id="signupSection">
+     <h2>Sign Up for the Exchange</h2>
+     <div id="signupIntro">
+       <button id="showSignupBtn" type="button">📝 Sign Up for This Exchange</button>
+     </div>
+
+     <form id="signupForm" style="display:none;max-width:700px;margin:0 auto;">
+       <div>
+         <label for="signupName">Full Name</label>
+         <input id="signupName" type="text" autocomplete="off" placeholder="Enter your name">
+       </div>
+
+       <div class="address-grid">
+         <div>
+           <label for="signupStreet">Street Address</label>
+           <input id="signupStreet" type="text" autocomplete="off" placeholder="412 17th Avenue">
+         </div>
+         <div>
+           <label for="signupCity">City</label>
+           <input id="signupCity" type="text" autocomplete="off" placeholder="Hinton">
+         </div>
+         <div>
+           <label for="signupState">State/Province</label>
+           <select id="signupState">
+             <option value="">-- Select --</option>
+             <option value="AL">Alabama (AL)</option><option value="AK">Alaska (AK)</option><option value="AZ">Arizona (AZ)</option>
+             <option value="AR">Arkansas (AR)</option><option value="CA">California (CA)</option><option value="CO">Colorado (CO)</option>
+             <option value="CT">Connecticut (CT)</option><option value="DE">Delaware (DE)</option><option value="FL">Florida (FL)</option>
+             <option value="GA">Georgia (GA)</option><option value="HI">Hawaii (HI)</option><option value="ID">Idaho (ID)</option>
+             <option value="IL">Illinois (IL)</option><option value="IN">Indiana (IN)</option><option value="IA">Iowa (IA)</option>
+             <option value="KS">Kansas (KS)</option><option value="KY">Kentucky (KY)</option><option value="LA">Louisiana (LA)</option>
+             <option value="ME">Maine (ME)</option><option value="MD">Maryland (MD)</option><option value="MA">Massachusetts (MA)</option>
+             <option value="MI">Michigan (MI)</option><option value="MN">Minnesota (MN)</option><option value="MS">Mississippi (MS)</option>
+             <option value="MO">Missouri (MO)</option><option value="MT">Montana (MT)</option><option value="NE">Nebraska (NE)</option>
+             <option value="NV">Nevada (NV)</option><option value="NH">New Hampshire (NH)</option><option value="NJ">New Jersey (NJ)</option>
+             <option value="NM">New Mexico (NM)</option><option value="NY">New York (NY)</option><option value="NC">North Carolina (NC)</option>
+             <option value="ND">North Dakota (ND)</option><option value="OH">Ohio (OH)</option><option value="OK">Oklahoma (OK)</option>
+             <option value="OR">Oregon (OR)</option><option value="PA">Pennsylvania (PA)</option><option value="RI">Rhode Island (RI)</option>
+             <option value="SC">South Carolina (SC)</option><option value="SD">South Dakota (SD)</option><option value="TN">Tennessee (TN)</option>
+             <option value="TX">Texas (TX)</option><option value="UT">Utah (UT)</option><option value="VT">Vermont (VT)</option>
+             <option value="VA">Virginia (VA)</option><option value="WA">Washington (WA)</option><option value="WV">West Virginia (WV)</option>
+             <option value="WI">Wisconsin (WI)</option><option value="WY">Wyoming (WY)</option>
+             <option value="DC">District of Columbia (DC)</option>
+             <option value="AB">Alberta (AB)</option><option value="BC">British Columbia (BC)</option><option value="MB">Manitoba (MB)</option>
+             <option value="NB">New Brunswick (NB)</option><option value="NL">Newfoundland and Labrador (NL)</option><option value="NS">Nova Scotia (NS)</option>
+             <option value="NT">Northwest Territories (NT)</option><option value="NU">Nunavut (NU)</option><option value="ON">Ontario (ON)</option>
+             <option value="PE">Prince Edward Island (PE)</option><option value="QC">Quebec (QC)</option><option value="SK">Saskatchewan (SK)</option>
+             <option value="YT">Yukon (YT)</option>
+           </select>
+         </div>
+         <div>
+           <label for="signupZip">ZIP / Postal Code</label>
+           <input id="signupZip" type="text" maxlength="12" autocomplete="off" placeholder="25951">
+         </div>
+       </div>
+
+       <div>
+         <label for="signupCode">Your 4-digit Code (choose a unique one)</label>
+         <input id="signupCode" type="text" maxlength="8" autocomplete="off" inputmode="numeric" placeholder="AB12">
+       </div>
+
+       <div>
+         <label for="signupPay">Deposit Payment Method</label>
+         <select id="signupPay">
+           <option value="">-- Select --</option>
+           <option value="PayPal">PayPal</option>
+           <option value="Cash App">Cash App</option>
+           <option value="Venmo">Venmo</option>
+         </select>
+       </div>
+
+       <div class="small-note" style="margin:16px 0 20px 0;">
+         You will be redirected to your chosen deposit method after sign up.
+       </div>
+
+       <div style="text-align:center;">
+         <button type="submit">✅ Submit Sign Up</button>
+       </div>
+     </form>
+
+     <div id="signupStatus" class="status"></div>
+   </div>
+ </div>
+
+ <!-- Public list card -->
+ <div class="card">
+   <h2>Current Sign-Up List</h2>
+   <table class="list-table" id="publicTable">
+     <thead>
+       <tr>
+         <th>#</th>
+         <th>Name</th>
+         <th>State</th>
+         <th>Deposit Status</th>
+       </tr>
+     </thead>
+     <tbody id="publicTableBody"></tbody>
+   </table>
+ </div>
+
+ <!-- Admin section (unlock removed; Google + allowlist only) -->
+ <div class="card" id="adminCard">
+   <div class="admin-header">
+     <h2>🔐 Organizer (Admin)</h2>
+     <button id="toggleAdminBtn" class="btn-secondary" type="button" style="margin-top:0; display:none;">Hide Admin Panel</button>
+   </div>
+
+   <div style="margin-bottom: 12px;">
+     <button id="adminLoginBtn" type="button">Admin Sign In</button>
+     <button id="adminLogoutBtn" type="button" style="display:none;">Sign Out</button>
+   </div>
+
+   <!-- Admin tools (hidden until approved admin signs in) -->
+   <div id="adminUnlocked" style="display:none;margin-top:24px;">
+     <h3 style="margin-top:0;">Sign-Ups (Admin View)</h3>
+     <p class="admin-small-note">
+       Click "Approved" to mark deposits as verified.
+     </p>
+
+     <table class="list-table" id="adminTable">
+       <thead>
+         <tr>
+           <th>#</th>
+           <th>Name</th>
+           <th>Address</th>
+           <th>State</th>
+           <th>Code</th>
+           <th>Pay Method</th>
+           <th>Approved?</th>
+           <th>Tracking #</th>
+           <th>Actions</th>
+         </tr>
+       </thead>
+       <tbody id="adminTableBody"></tbody>
+     </table>
+
+     <!-- Assignments preview -->
+     <h3>Assignments Preview (Approved Only)</h3>
+     <p class="admin-small-note">
+       <strong>Preview Assignments:</strong> Generate assignments and click matches you don't like, then regenerate until you're satisfied (approved participants only).<br>
+       <strong>Commit Assignments:</strong> Saves the assignments to the reveal section and starts the exchange.
+     </p>
+
+     <div style="margin-bottom:16px; margin-top: 16px;">
+       <button id="generatePreviewBtn" class="btn-secondary" type="button">🎲 Preview Assignments</button>
+       <button id="commitAssignmentsBtn" class="btn-secondary" type="button">✅ Commit Assignments</button>
+     </div>
+
+     <table class="list-table" id="previewTable">
+       <thead>
+         <tr>
+           <th>#</th>
+           <th>Sender</th>
+           <th></th>
+           <th>Receiver</th>
+         </tr>
+       </thead>
+       <tbody id="previewTableBody"></tbody>
+     </table>
+
+     <div style="margin-top:24px;">
+       <button id="clearAllBtn" class="btn-danger" type="button">🗑 Clear All Sign-Ups &amp; Reset</button>
+     </div>
+
+     <div id="adminStatus" class="status" style="text-align:left;"></div>
+   </div>
+ </div>
+
+</div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<script>
+// ===== 1. Firebase config – your project =====
+const firebaseConfig = {
+ apiKey: "AIzaSyDVlyLssFBefRTRWMNFtNJG7uKNKsWEqDA",
+ authDomain: "rock-exchange.firebaseapp.com",
+ projectId: "rock-exchange",
+ storageBucket: "rock-exchange.firebasestorage.app",
+ messagingSenderId: "916313020352",
+ appId: "1:916313020352:web:48c363939a1b923a751a25",
+ measurementId: "G-LS6C7PX4G4"
+};
+// =================================================================
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// ===== Admin Google Sign-In (COMPAT) =====
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
+
+// Prevent popup conflicts
+let adminLoginInProgress = false;
+
+// Cache of admin emails from Firestore doc appConfig/admins
+let ADMIN_EMAILS_CACHE = null;
+
+async function loadAdminEmailList() {
+ try {
+   const snap = await db.collection("appConfig").doc("admins").get();
+   if (!snap.exists) return [];
+   const data = snap.data() || {};
+   const list = Array.isArray(data.adminEmails) ? data.adminEmails : [];
+   return list.map(e => String(e || "").toLowerCase()).filter(Boolean);
+ } catch (e) {
+   console.error("Failed to load admin email list:", e);
+   return [];
+ }
+}
+
+async function isApprovedAdmin(user) {
+ if (!user || !user.email) return false;
+ const email = user.email.toLowerCase();
+
+ if (!ADMIN_EMAILS_CACHE) {
+   ADMIN_EMAILS_CACHE = await loadAdminEmailList();
+ }
+ return ADMIN_EMAILS_CACHE.includes(email);
+}
+
+function setAdminUI({ signedIn, authorized }) {
+ const loginBtn = document.getElementById("adminLoginBtn");
+ const logoutBtn = document.getElementById("adminLogoutBtn");
+ const adminUnlocked = document.getElementById("adminUnlocked");
+ const adminStatus = document.getElementById("adminStatus");
+ const toggleAdminBtn = document.getElementById("toggleAdminBtn");
+
+ if (adminStatus) {
+   adminStatus.textContent = "";
+   adminStatus.className = "status";
+ }
+
+ if (!signedIn) {
+   if (loginBtn) loginBtn.style.display = "inline-block";
+   if (logoutBtn) logoutBtn.style.display = "none";
+   if (adminUnlocked) adminUnlocked.style.display = "none";
+   if (toggleAdminBtn) toggleAdminBtn.style.display = "none";
+   return;
+ }
+
+ // signed in
+ if (loginBtn) loginBtn.style.display = "none";
+ if (logoutBtn) logoutBtn.style.display = "inline-block";
+
+ if (authorized) {
+   if (adminUnlocked) adminUnlocked.style.display = "block";
+   if (toggleAdminBtn) {
+     toggleAdminBtn.style.display = "inline-block";
+     toggleAdminBtn.textContent = "Hide Admin Panel";
+   }
+ } else {
+   if (adminUnlocked) adminUnlocked.style.display = "none";
+   if (toggleAdminBtn) toggleAdminBtn.style.display = "none";
+ }
+}
+
+async function adminLogin() {
+ if (adminLoginInProgress) return;
+ adminLoginInProgress = true;
+
+ const btn = document.getElementById("adminLoginBtn");
+ if (btn) btn.disabled = true;
+
+ try {
+   // refresh admin list each login attempt
+   ADMIN_EMAILS_CACHE = null;
+
+   await auth.signInWithPopup(provider);
+
+   // onAuthStateChanged will handle gating + UI
+ } catch (err) {
+   console.error("Admin login failed:", err);
+
+   if (err && err.code === "auth/popup-blocked") {
+     alert("Popup was blocked. Allow popups for this site, then try again.");
+   } else if (err && err.code === "auth/cancelled-popup-request") {
+     // ignore
+   } else {
+     alert("Admin sign-in failed.");
+   }
+ } finally {
+   adminLoginInProgress = false;
+   if (btn) btn.disabled = false;
+ }
+}
+
+function adminLogout() {
+ auth.signOut();
+}
+
+document.getElementById("adminLoginBtn").addEventListener("click", adminLogin);
+document.getElementById("adminLogoutBtn").addEventListener("click", adminLogout);
+
+// Toggle admin tools (only works if authorized admin)
+document.getElementById("toggleAdminBtn").addEventListener("click", () => {
+ const adminUnlocked = document.getElementById("adminUnlocked");
+ if (!adminUnlocked) return;
+
+ // only allow toggle if user is authorized
+ const user = auth.currentUser;
+ if (!user) return;
+
+ const visible = adminUnlocked.style.display !== "none";
+ if (visible) {
+   adminUnlocked.style.display = "none";
+   document.getElementById("toggleAdminBtn").textContent = "Show Admin Panel";
+ } else {
+   adminUnlocked.style.display = "block";
+   document.getElementById("toggleAdminBtn").textContent = "Hide Admin Panel";
+ }
+});
+
+// auth gating: signed in must also be allowlisted in appConfig/admins
+auth.onAuthStateChanged(user => {
+ console.log("AUTH STATE:", user ? user.email : "SIGNED OUT");
+ // ...rest of your code...
+});
+
+auth.onAuthStateChanged(async (user) => {
+ if (!user) {
+   setAdminUI({ signedIn: false, authorized: false });
+   return;
+ }
+
+ const ok = await isApprovedAdmin(user);
+ if (!ok) {
+   alert("This Google account is not approved as an admin.");
+   await auth.signOut();
+   setAdminUI({ signedIn: false, authorized: false });
+   return;
+ }
+
+ setAdminUI({ signedIn: true, authorized: true });
+});
+
+// Hide admin toggle by default until authorized
+setAdminUI({ signedIn: false, authorized: false });
+// =======================================
+
+const PAYMENT_LINKS = {
+ "PayPal": "PASTE_PAYPAL_LINK_HERE",
+ "Cash App": "PASTE_CASHAPP_LINK_HERE",
+ "Venmo": "PASTE_VENMO_LINK_HERE",
+};
+
+function regionForState(st) {
+ const up = (st || "").toUpperCase();
+ const stateToRegion = {
+   ME:"Northeast", NH:"Northeast", VT:"Northeast", MA:"Northeast",
+   RI:"Northeast", CT:"Northeast", NY:"Northeast", NJ:"Northeast",
+   PA:"Northeast",
+
+   OH:"Midwest", MI:"Midwest", IN:"Midwest", IL:"Midwest",
+   WI:"Midwest", MN:"Midwest", IA:"Midwest", MO:"Midwest",
+   ND:"Midwest", SD:"Midwest", NE:"Midwest", KS:"Midwest",
+
+   DE:"South", MD:"South", DC:"South", VA:"South", WV:"South",
+   NC:"South", SC:"South", GA:"South", FL:"South",
+   KY:"South", TN:"South", AL:"South", MS:"South",
+   AR:"South", LA:"South", OK:"South", TX:"South",
+
+   MT:"Mountain", ID:"Mountain", WY:"Mountain", CO:"Mountain",
+   NM:"Mountain", AZ:"Mountain", UT:"Mountain", NV:"Mountain",
+
+   WA:"West", OR:"West", CA:"West",
+
+   AK:"Alaska", HI:"Hawaii"
+ };
+ return stateToRegion[up] || "Unknown";
+}
+
+// ===== Name + Address formatting helpers =====
+function titleCaseWord(word) {
+ if (!word) return "";
+ return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
+function formatName(name) {
+ if (!name) return "";
+ return name
+   .toLowerCase()
+   .replace(/\s+/g, " ")
+   .trim()
+   .split(" ")
+   .map(w => titleCaseWord(w))
+   .join(" ");
+}
+
+function formatCity(city) {
+ if (!city) return "";
+ return city
+   .toLowerCase()
+   .replace(/\s+/g, " ")
+   .trim()
+   .split(" ")
+   .map(w => titleCaseWord(w))
+   .join(" ");
+}
+
+function formatStreet(street) {
+ if (!street) return "";
+ let cleaned = street.replace(/\s+/g, " ").trim();
+ if (!cleaned) return "";
+
+ const suffixMap = {
+   "st": "St.",
+   "street": "St.",
+   "rd": "Rd.",
+   "road": "Rd.",
+   "ave": "Ave.",
+   "avenue": "Ave.",
+   "blvd": "Blvd.",
+   "boulevard": "Blvd.",
+   "ln": "Ln.",
+   "lane": "Ln.",
+   "dr": "Dr.",
+   "drive": "Dr.",
+   "ct": "Ct.",
+   "court": "Ct.",
+   "pkwy": "Pkwy.",
+   "parkway": "Pkwy.",
+   "pl": "Pl.",
+   "place": "Pl."
+ };
+
+ const dirMap = {
+   "n": "N",
+   "s": "S",
+   "e": "E",
+   "w": "W",
+   "ne": "NE",
+   "nw": "NW",
+   "se": "SE",
+   "sw": "SW"
+ };
+
+ const parts = cleaned.split(" ");
+ const out = parts.map(part => {
+   let raw = part;
+   let trailing = "";
+
+   // handle trailing punctuation like "," or "."
+   if (/[.,]$/.test(raw)) {
+     trailing = raw.slice(-1);
+     raw = raw.slice(0, -1);
+   }
+
+   const lower = raw.toLowerCase();
+
+   if (dirMap[lower]) {
+     return dirMap[lower] + trailing;
+   }
+
+   if (suffixMap[lower]) {
+     return suffixMap[lower] + trailing;
+   }
+
+   // If it's something with a digit (apt numbers, etc.) keep as-is (plus trailing)
+   if (/\d/.test(raw)) {
+     return raw + trailing;
+   }
+
+   // Default: title case the word
+   return titleCaseWord(raw) + trailing;
+ });
+
+ return out.join(" ");
+}
+
+// ========== UI elements for reveal vs signup ==========
+
+const revealSection = document.getElementById("revealSection");
+const signupSection = document.getElementById("signupSection");
+
+db.collection("settings").doc("global").onSnapshot((snap) => {
+ let revealEnabled = false;
+ if (snap.exists) {
+   const d = snap.data();
+   revealEnabled = !!d.revealEnabled;
+ }
+ if (revealEnabled) {
+   revealSection.style.display = "block";
+   signupSection.style.display = "none";
+ } else {
+   revealSection.style.display = "none";
+   signupSection.style.display = "block";
+ }
+}, (err) => {
+ console.error("settings/global listener error:", err);
+});
+
+// ========== SIGN-UP LOGIC ==========
+
+const showSignupBtn = document.getElementById("showSignupBtn");
+const signupForm = document.getElementById("signupForm");
+const signupStatus = document.getElementById("signupStatus");
+
+showSignupBtn.addEventListener("click", () => {
+ signupForm.style.display = "block";
+ showSignupBtn.style.display = "none";
+});
+
+signupForm.addEventListener("submit", async (e) => {
+ e.preventDefault();
+ signupStatus.textContent = "";
+ signupStatus.className = "status";
+
+ let name = document.getElementById("signupName").value.trim();
+ let street = document.getElementById("signupStreet").value.trim();
+ let city = document.getElementById("signupCity").value.trim();
+ const stateCode = document.getElementById("signupState").value.trim();
+ const zip = document.getElementById("signupZip").value.trim();
+ const codeRaw = document.getElementById("signupCode").value.trim();
+ const payment = document.getElementById("signupPay").value;
+
+ // Normalize code to match your rules: 4 chars A-Z0-9
+ const code = codeRaw.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 4);
+
+ if (!name || !street || !city || !stateCode || !zip || !code || !payment) {
+   signupStatus.textContent = "Please fill in all fields (name, full address, code, payment method).";
+   signupStatus.classList.add("error");
+   return;
+ }
+
+ if (code.length !== 4) {
+   signupStatus.textContent = "Code must be exactly 4 characters (A-Z / 0-9). Example: AB12";
+   signupStatus.classList.add("error");
+   return;
+ }
+
+ // Normalize/format name + address for display/storage
+ name = formatName(name);
+ street = formatStreet(street);
+ city = formatCity(city);
+
+ const addressFull = `${street}, ${city}, ${stateCode} ${zip}`;
+
+ try {
+   await db.collection("signups").add({
+     name,
+     addressStreet: street,
+     addressCity: city,
+     addressStateCode: stateCode,
+     addressZip: zip,
+     addressFull,
+     state: stateCode,
+     code,
+     paymentMethod: payment,
+     depositSent: false,
+     depositApproved: false,
+     trackingNumber: "",
+     trackingSubmitted: false,
+     trackingSubmittedAt: null,
+     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+     assignedToId: null,
+     assignedToName: null,
+     assignedToAddressFull: null,
+     assignedToState: null,
+     assignedAt: null
+   });
+
+   signupStatus.innerHTML = `✅ <strong>Sign-up successful!</strong><br>`;
+   signupStatus.classList.add("success");
+
+   signupForm.reset();
+   signupForm.style.display = "none";
+   showSignupBtn.style.display = "inline-block";
+
+   setTimeout(() => openPayment(payment), 150);
+
+ } catch (err) {
+   console.error(err);
+   signupStatus.textContent = "Error saving sign-up. Please try again or contact the organizer.";
+   signupStatus.classList.add("error");
+ }
+});
+
+// ========== REVEAL MATCH + TRACKING (after assignments generated) ==========
+
+const revealCodeInput = document.getElementById("revealCodeInput");
+const revealBtn = document.getElementById("revealBtn");
+const revealStatus = document.getElementById("revealStatus");
+const revealResultCard = document.getElementById("revealResultCard");
+const trackingSection = document.getElementById("trackingSection");
+const trackingInput = document.getElementById("trackingInput");
+const submitTrackingBtn = document.getElementById("submitTrackingBtn");
+const trackingStatus = document.getElementById("trackingStatus");
+const incomingTrackingDisplay = document.getElementById("incomingTrackingDisplay");
+
+let currentRevealDocId = null;
+
+async function loadIncomingTracking(myDocId) {
+ incomingTrackingDisplay.textContent = "";
+ try {
+   const snap = await db.collection("signups")
+     .where("assignedToId", "==", myDocId)
+     .limit(1)
+     .get();
+
+   if (snap.empty) {
+     incomingTrackingDisplay.textContent =
+       "Tracking number for the box coming to you: (not submitted yet)";
+     return;
+   }
+
+   const d = snap.docs[0].data();
+   if (d.trackingSubmitted && d.trackingNumber) {
+     incomingTrackingDisplay.textContent =
+       "Tracking number for the box coming to you: " + d.trackingNumber;
+   } else {
+     incomingTrackingDisplay.textContent =
+       "Tracking number for the box coming to you: (not submitted yet)";
+   }
+ } catch (err) {
+   console.error(err);
+   incomingTrackingDisplay.textContent =
+     "Unable to load tracking for your incoming package right now.";
+ }
+}
+
+async function revealMatch() {
+ revealStatus.textContent = "";
+ revealStatus.className = "status";
+ revealResultCard.style.display = "none";
+ revealResultCard.textContent = "";
+ trackingSection.style.display = "none";
+ trackingStatus.textContent = "";
+ trackingStatus.className = "status";
+ incomingTrackingDisplay.textContent = "";
+ currentRevealDocId = null;
+
+ const code = revealCodeInput.value.trim().toUpperCase();
+ if (!code) {
+   revealStatus.textContent = "Please enter your code.";
+   revealStatus.classList.add("error");
+   return;
+ }
+
+ try {
+   const settingsSnap = await db.collection("settings").doc("global").get();
+   const revealEnabled = settingsSnap.exists && !!settingsSnap.data().revealEnabled;
+   if (!revealEnabled) {
+     revealStatus.textContent = "Assignments are not revealed yet. Please wait for the organizer to enable reveal.";
+     revealStatus.classList.add("error");
+     return;
+   }
+
+   const snap = await db.collection("signups")
+     .where("code", "==", code)
+     .limit(1)
+     .get();
+
+   if (snap.empty) {
+     revealStatus.textContent = "No sign-up found with that code. Double-check or contact the organizer.";
+     revealStatus.classList.add("error");
+     return;
+   }
+
+   const doc = snap.docs[0];
+   const d = doc.data();
+   currentRevealDocId = doc.id;
+
+   const toName = d.assignedToName;
+   const toAddr = d.assignedToAddressFull || d.assignedToAddress || "";
+
+   if (!toName || !toAddr) {
+     revealStatus.textContent =
+       "You are signed up, but assignments are not ready yet. Please contact the organizer.";
+     revealStatus.classList.add("error");
+     return;
+   }
+
+   revealStatus.textContent = "Match found!";
+   revealStatus.classList.add("success");
+
+   revealResultCard.innerHTML =
+     `<div><strong>Hello ${d.name}!</strong></div>` +
+     `<div style="margin-top:6px;">For this Rock Exchange, you'll be sending rocks to:</div>` +
+     `<div style="margin-top:6px;padding-left:8px;"><strong>${toName}</strong><br>${toAddr}</div>` +
+     `<div style="margin-top:10px;font-size:12px;color:#475569;">` +
+     `Please mail your box on or before Dec. 12. Submit a valid tracking number and I will refund your deposit.` +
+     `</div>` +
+     `<div style="margin-top:6px;font-size:12px;color:#475569;">` +
+     `Thank you for being part of this Exchange!` +
+     `</div>`;
+
+   revealResultCard.style.display = "block";
+   revealResultCard.classList.remove("fade-in");
+   void revealResultCard.offsetWidth;
+   revealResultCard.classList.add("fade-in");
+
+   trackingInput.value = d.trackingNumber || "";
+   trackingSection.style.display = "block";
+
+   await loadIncomingTracking(doc.id);
+ } catch (err) {
+   console.error(err);
+   revealStatus.textContent = "Error looking up your assignment. Please try again.";
+   revealStatus.classList.add("error");
+ }
+}
+
+revealBtn.addEventListener("click", revealMatch);
+revealCodeInput.addEventListener("keyup", (e) => {
+ if (e.key === "Enter") revealMatch();
+});
+
+// Submit tracking (for the box they are sending)
+submitTrackingBtn.addEventListener("click", async () => {
+ trackingStatus.textContent = "";
+ trackingStatus.className = "status";
+
+ if (!currentRevealDocId) {
+   trackingStatus.textContent = "Please reveal your match first.";
+   trackingStatus.classList.add("error");
+   return;
+ }
+
+ const trackingNumber = trackingInput.value.trim();
+ if (!trackingNumber) {
+   trackingStatus.textContent = "Please enter a tracking number.";
+   trackingStatus.classList.add("error");
+   return;
+ }
+
+ try {
+   await db.collection("signups").doc(currentRevealDocId).update({
+     trackingNumber,
+     trackingSubmitted: true,
+     trackingSubmittedAt: firebase.firestore.FieldValue.serverTimestamp()
+   });
+
+   trackingStatus.textContent = "Tracking number submitted. Thank you!";
+   trackingStatus.classList.add("success");
+
+   await loadIncomingTracking(currentRevealDocId);
+ } catch (err) {
+   console.error(err);
+   trackingStatus.textContent = "Error saving tracking number. Please try again.";
+   trackingStatus.classList.add("error");
+ }
+});
+
+// ========== REAL-TIME LISTENERS FOR PUBLIC + ADMIN TABLES ==========
+
+function fullStateName(code) {
+ const c = (code || "").toUpperCase().trim();
+ const map = {
+   // US
+   AL:"Alabama", AK:"Alaska", AZ:"Arizona", AR:"Arkansas", CA:"California",
+   CO:"Colorado", CT:"Connecticut", DE:"Delaware", FL:"Florida", GA:"Georgia",
+   HI:"Hawaii", ID:"Idaho", IL:"Illinois", IN:"Indiana", IA:"Iowa",
+   KS:"Kansas", KY:"Kentucky", LA:"Louisiana", ME:"Maine", MD:"Maryland",
+   MA:"Massachusetts", MI:"Michigan", MN:"Minnesota", MS:"Mississippi", MO:"Missouri",
+   MT:"Montana", NE:"Nebraska", NV:"Nevada", NH:"New Hampshire", NJ:"New Jersey",
+   NM:"New Mexico", NY:"New York", NC:"North Carolina", ND:"North Dakota", OH:"Ohio",
+   OK:"Oklahoma", OR:"Oregon", PA:"Pennsylvania", RI:"Rhode Island", SC:"South Carolina",
+   SD:"South Dakota", TN:"Tennessee", TX:"Texas", UT:"Utah", VT:"Vermont",
+   VA:"Virginia", WA:"Washington", WV:"West Virginia", WI:"Wisconsin", WY:"Wyoming",
+   DC:"District of Columbia",
+
+   // Canada
+   AB:"Alberta", BC:"British Columbia", MB:"Manitoba", NB:"New Brunswick",
+   NL:"Newfoundland and Labrador", NS:"Nova Scotia", NT:"Northwest Territories",
+   NU:"Nunavut", ON:"Ontario", PE:"Prince Edward Island", QC:"Quebec",
+   SK:"Saskatchewan", YT:"Yukon"
+ };
+ return map[c] || (code || "—");
+}
+
+const publicTableBody = document.getElementById("publicTableBody");
+const adminTableBody = document.getElementById("adminTableBody");
+const adminStatus = document.getElementById("adminStatus");
+
+// Render rows on snapshot
+db.collection("signups")
+ .orderBy("createdAt", "asc")
+ .onSnapshot((snapshot) => {
+   const rowsPublic = [];
+   const rowsAdmin = [];
+   let idx = 0;
+
+   snapshot.forEach(doc => {
+     idx++;
+     const d = doc.data();
+
+     const name = d.name || "";
+     const stateCode = d.addressStateCode || d.state || "";
+     const stateFull = fullStateName(stateCode);
+
+     const pm = d.paymentMethod || "";
+     const depositApproved = !!d.depositApproved;
+     const trackingNumber = d.trackingNumber || "";
+     const addressFull = d.addressFull || d.address || "";
+     const code = d.code || "";
+
+     // ===== Public row (NO payment method) =====
+     const trPub = document.createElement("tr");
+     trPub.innerHTML = `
+       <td>${idx}</td>
+       <td>${name}</td>
+       <td>${stateFull}</td>
+       <td>
+         <span class="badge ${depositApproved ? "badge-approved" : "badge-not-approved"}">
+           ${depositApproved ? "Approved" : "Pending"}
+         </span>
+       </td>
+     `;
+     rowsPublic.push(trPub);
+
+     // ===== Admin row (keep payment method + tracking) =====
+     const trAdmin = document.createElement("tr");
+     trAdmin.setAttribute("data-id", doc.id);
+     trAdmin.innerHTML = `
+       <td>${idx}</td>
+       <td>${name}</td>
+       <td style="max-width:260px;white-space:normal;">${addressFull}</td>
+       <td>${stateCode}</td>
+       <td>${code || "—"}</td>
+       <td>${pm || "—"}</td>
+       <td>
+         <span class="badge clickable ${depositApproved ? "badge-approved" : "badge-not-approved"}" data-action="approve">
+           ${depositApproved ? "Approved" : "Click to Approve"}
+         </span>
+       </td>
+       <td>${trackingNumber ? trackingNumber : "—"}</td>
+       <td>
+         <button class="btn-small btn-danger" type="button" data-action="delete">Delete</button>
+       </td>
+     `;
+     rowsAdmin.push(trAdmin);
+   });
+
+   publicTableBody.innerHTML = "";
+   rowsPublic.forEach(r => publicTableBody.appendChild(r));
+
+   adminTableBody.innerHTML = "";
+   rowsAdmin.forEach(r => adminTableBody.appendChild(r));
+ }, (err) => {
+   console.error("Error listening to signups:", err);
+ });
+
+// ✅ ADMIN CLICK HANDLERS (EVENT DELEGATION; NO RE-ATTACH BUGS)
+adminTableBody.addEventListener("click", async (e) => {
+ const target = e.target;
+ if (!target) return;
+
+ const action = target.getAttribute("data-action");
+ if (!action) return;
+
+ // hard gate: must be signed in and approved admin
+ const user = auth.currentUser;
+ const ok = await isApprovedAdmin(user);
+ if (!ok) {
+   alert("Not authorized.");
+   return;
+ }
+
+ const row = target.closest("tr");
+ if (!row) return;
+ const docId = row.getAttribute("data-id");
+ if (!docId) return;
+
+ adminStatus.textContent = "";
+ adminStatus.className = "status";
+
+ try {
+   if (action === "approve") {
+     await db.collection("signups").doc(docId).update({ depositApproved: true });
+     adminStatus.textContent = "Deposit approved.";
+     adminStatus.classList.add("success");
+     return;
+   }
+
+   if (action === "delete") {
+     const confirmed = confirm("Delete this sign-up? This cannot be undone.");
+     if (!confirmed) return;
+
+     await db.collection("signups").doc(docId).delete();
+     adminStatus.textContent = "Sign-up deleted.";
+     adminStatus.classList.add("success");
+     return;
+   }
+ } catch (err) {
+   console.error(err);
+   const code = (err && err.code) ? err.code : "unknown";
+   adminStatus.textContent = "Admin action failed: " + code;
+   adminStatus.classList.add("error");
+   alert(adminStatus.textContent);
+ }
+});
+
+// ========== ASSIGNMENTS PREVIEW (ADMIN) ==========
+
+const generatePreviewBtn = document.getElementById("generatePreviewBtn");
+const commitAssignmentsBtn = document.getElementById("commitAssignmentsBtn");
+const previewTableBody = document.getElementById("previewTableBody");
+
+let previewParticipants = null;   // { id, name, addressFull, stateCode, region }
+let previewAssignments = null;    // [{ fromIndex, toIndex }]
+let selectedPreviewFromIndices = new Set();
+
+// Simple shuffle helper
+function shuffle(arr) {
+ for (let i = arr.length - 1; i > 0; i--) {
+   const j = Math.floor(Math.random() * (i + 1));
+   [arr[i], arr[j]] = [arr[j], arr[i]];
+ }
+ return arr;
+}
+
+// Generate full assignments (one-way, avoid self, regions, 2-cycles)
+function generateAssignments(participants) {
+ const n = participants.length;
+ if (n < 2) return null;
+
+ const idxs = [...Array(n).keys()];
+ let bestPerm = null;
+ let bestScore = Infinity;
+ const maxTries = 500;
+
+ function score(perm) {
+   let selfSend = 0;
+   let regionConf = 0;
+   let twoCycles = 0;
+
+   for (let i = 0; i < n; i++) {
+     const j = perm[i];
+     if (i === j) selfSend++;
+     const a = participants[i];
+     const b = participants[j];
+     if (a.region !== "Unknown" && b.region !== "Unknown" && a.region === b.region) {
+       regionConf++;
+     }
+   }
+
+   for (let i = 0; i < n; i++) {
+     const j = perm[i];
+     if (j > i && perm[j] === i) {
+       twoCycles++;
+     }
+   }
+
+   return selfSend * 10000 + twoCycles * 100 + regionConf;
+ }
+
+ for (let attempt = 0; attempt < maxTries; attempt++) {
+   shuffle(idxs);
+   const perm = idxs.slice();
+   const s = score(perm);
+   if (s < bestScore) {
+     bestScore = s;
+     bestPerm = perm.slice();
+     if (s === 0) break;
+   }
+ }
+
+ if (!bestPerm) return null;
+
+ // Final safety: fix any self-sends
+ for (let i = 0; i < n; i++) {
+   if (bestPerm[i] === i) {
+     let swapWith = -1;
+     for (let j = 0; j < n; j++) {
+       if (j === i) continue;
+       if (bestPerm[j] === j) continue;
+       if (bestPerm[j] === i) continue;
+       swapWith = j;
+       break;
+     }
+     if (swapWith === -1) {
+       const j = (i + 1) % n;
+       [bestPerm[i], bestPerm[j]] = [bestPerm[j], bestPerm[i]];
+     } else {
+       [bestPerm[i], bestPerm[swapWith]] = [bestPerm[swapWith], bestPerm[i]];
+     }
+   }
+ }
+
+ const assignments = [];
+ for (let i = 0; i < n; i++) {
+   assignments.push({ fromIndex: i, toIndex: bestPerm[i] });
+ }
+ return assignments;
+}
+
+// Re-roll only a subset of senders, keeping others fixed
+function rerollSubsetAssignments(participants, assignments, selectedFromIdxArr) {
+ const n = participants.length;
+ if (selectedFromIdxArr.length < 2) return false;
+
+ const dest = new Array(n);
+ for (let i = 0; i < n; i++) {
+   dest[i] = assignments[i].toIndex;
+ }
+
+ const S = selectedFromIdxArr;
+ const m = S.length;
+ const pool = S.map(i => dest[i]);
+
+ const maxTries = 400;
+ let bestMap = null;
+ let bestScore = Infinity;
+
+ function scoreMapping(perm) {
+   const tempDest = dest.slice();
+   for (let k = 0; k < m; k++) {
+     const fromIdx = S[k];
+     const toIdx = pool[perm[k]];
+     tempDest[fromIdx] = toIdx;
+   }
+
+   let selfSend = 0;
+   let regionConf = 0;
+   let twoCycles = 0;
+
+   for (let i = 0; i < n; i++) {
+     const j = tempDest[i];
+     if (i === j) selfSend++;
+     const a = participants[i];
+     const b = participants[j];
+     if (a.region !== "Unknown" && b.region !== "Unknown" && a.region === b.region) {
+       regionConf++;
+     }
+   }
+
+   for (let i = 0; i < n; i++) {
+     const j = tempDest[i];
+     if (j > i && tempDest[j] === i) {
+       twoCycles++;
+     }
+   }
+
+   return selfSend * 10000 + twoCycles * 100 + regionConf;
+ }
+
+ for (let attempt = 0; attempt < maxTries; attempt++) {
+   const perm = [...Array(m).keys()];
+   shuffle(perm);
+
+   // quick self-send check
+   let bad = false;
+   for (let k = 0; k < m; k++) {
+     const fromIdx = S[k];
+     const toIdx = pool[perm[k]];
+     if (toIdx === fromIdx) {
+       bad = true;
+       break;
+     }
+   }
+   if (bad) continue;
+
+   const sc = scoreMapping(perm);
+   if (sc < bestScore) {
+     bestScore = sc;
+     bestMap = perm.slice();
+     if (sc === 0) break;
+   }
+ }
+
+ if (!bestMap) return false;
+
+ for (let k = 0; k < m; k++) {
+   const fromIdx = S[k];
+   const toIdx = pool[bestMap[k]];
+   dest[fromIdx] = toIdx;
+ }
+
+ for (let i = 0; i < n; i++) {
+   assignments[i].toIndex = dest[i];
+ }
+
+ return true;
+}
+
+// Render preview table
+function renderPreviewTable(participants, assignments) {
+ previewTableBody.innerHTML = "";
+ selectedPreviewFromIndices.clear();
+
+ assignments.forEach((a, idx) => {
+   const from = participants[a.fromIndex];
+   const to = participants[a.toIndex];
+
+   const tr = document.createElement("tr");
+   tr.className = "preview-row";
+   tr.setAttribute("data-from-index", String(a.fromIndex));
+   tr.innerHTML = `
+     <td>${idx + 1}</td>
+     <td>${from.name} (${from.stateCode})</td>
+     <td style="text-align:center;">→</td>
+     <td>${to.name} (${to.stateCode})</td>
+   `;
+   previewTableBody.appendChild(tr);
+ });
+
+ attachPreviewRowHandlers();
+}
+
+function attachPreviewRowHandlers() {
+ const rows = Array.from(previewTableBody.querySelectorAll("tr.preview-row"));
+ rows.forEach(row => {
+   row.addEventListener("click", () => {
+     const fromIdx = parseInt(row.getAttribute("data-from-index"), 10);
+     if (selectedPreviewFromIndices.has(fromIdx)) {
+       selectedPreviewFromIndices.delete(fromIdx);
+       row.classList.remove("preview-row-selected");
+     } else {
+       selectedPreviewFromIndices.add(fromIdx);
+       row.classList.add("preview-row-selected");
+     }
+   });
+ });
+}
+
+// Helper to compare participant ID sets
+function sameParticipantSet(oldList, newList) {
+ if (!oldList) return false;
+ if (oldList.length !== newList.length) return false;
+ const oldIds = oldList.map(p => p.id).sort();
+ const newIds = newList.map(p => p.id).sort();
+ for (let i = 0; i < oldIds.length; i++) {
+   if (oldIds[i] !== newIds[i]) return false;
+ }
+ return true;
+}
+
+generatePreviewBtn.addEventListener("click", async () => {
+ adminStatus.textContent = "";
+ adminStatus.className = "status";
+
+ const ok = await isApprovedAdmin(auth.currentUser);
+ if (!ok) {
+   adminStatus.textContent = "Not authorized.";
+   adminStatus.classList.add("error");
+   return;
+ }
+
+ try {
+   const snap = await db.collection("signups")
+     .where("depositApproved", "==", true)
+     .get();
+
+   if (snap.size < 2) {
+     adminStatus.textContent = "Need at least 2 approved participants to generate assignments.";
+     adminStatus.classList.add("error");
+     previewTableBody.innerHTML = "";
+     previewParticipants = null;
+     previewAssignments = null;
+     selectedPreviewFromIndices.clear();
+     return;
+   }
+
+   const participantsNow = [];
+   snap.forEach(doc => {
+     const d = doc.data();
+     const stateCode = d.addressStateCode || d.state || "";
+     participantsNow.push({
+       id: doc.id,
+       name: d.name || "",
+       addressFull: d.addressFull || d.address || "",
+       stateCode,
+       region: regionForState(stateCode),
+       code: d.code || ""
+     });
+   });
+
+   if (!previewParticipants || !previewAssignments || !sameParticipantSet(previewParticipants, participantsNow)) {
+     const assignments = generateAssignments(participantsNow);
+     if (!assignments) {
+       adminStatus.textContent = "Could not generate assignments. Try again.";
+       adminStatus.classList.add("error");
+       previewTableBody.innerHTML = "";
+       previewParticipants = null;
+       previewAssignments = null;
+       selectedPreviewFromIndices.clear();
+       return;
+     }
+
+     previewParticipants = participantsNow;
+     previewAssignments = assignments;
+     renderPreviewTable(previewParticipants, previewAssignments);
+
+     adminStatus.textContent =
+       "Preview assignments generated from current approved list. Click rows to highlight, then re-roll or commit.";
+     adminStatus.classList.add("success");
+     return;
+   }
+
+   previewParticipants = participantsNow;
+   const selected = Array.from(selectedPreviewFromIndices);
+
+   if (selected.length === 0) {
+     const assignments = generateAssignments(previewParticipants);
+     if (!assignments) {
+       adminStatus.textContent = "Could not re-roll assignments. Try again.";
+       adminStatus.classList.add("error");
+       return;
+     }
+     previewAssignments = assignments;
+     renderPreviewTable(previewParticipants, previewAssignments);
+     adminStatus.textContent = "Entire preview re-rolled.";
+     adminStatus.classList.add("success");
+   } else if (selected.length === 1) {
+     adminStatus.textContent =
+       "Select at least 2 rows to re-roll subset; a single assignment can't be changed alone because all matches are connected.";
+     adminStatus.classList.add("error");
+   } else {
+     const ok2 = rerollSubsetAssignments(previewParticipants, previewAssignments, selected);
+     if (!ok2) {
+       adminStatus.textContent =
+         "Could not find a better subset re-roll with current constraints. Try selecting a different group or re-rolling all.";
+       adminStatus.classList.add("error");
+       return;
+     }
+     renderPreviewTable(previewParticipants, previewAssignments);
+     adminStatus.textContent = "Selected preview rows re-rolled.";
+     adminStatus.classList.add("success");
+   }
+ } catch (err) {
+   console.error(err);
+   adminStatus.textContent = "Error generating preview assignments. Please try again.";
+   adminStatus.classList.add("error");
+ }
+});
+
+commitAssignmentsBtn.addEventListener("click", async () => {
+ adminStatus.textContent = "";
+ adminStatus.className = "status";
+
+ const ok = await isApprovedAdmin(auth.currentUser);
+ if (!ok) {
+   adminStatus.textContent = "Not authorized.";
+   adminStatus.classList.add("error");
+   return;
+ }
+
+ if (!previewParticipants || !previewAssignments) {
+   adminStatus.textContent = "No preview assignments to commit. Generate a preview first.";
+   adminStatus.classList.add("error");
+   return;
+ }
+
+ const confirmed = confirm(
+   "This will save the current preview assignments for all approved participants and enable the reveal page.\n" +
+   "Sign-ups will effectively be closed. Continue?"
+ );
+ if (!confirmed) return;
+
+ try {
+   const batch = db.batch();
+
+   previewAssignments.forEach(a => {
+     const from = previewParticipants[a.fromIndex];
+     const to = previewParticipants[a.toIndex];
+     const ref = db.collection("signups").doc(from.id);
+     batch.update(ref, {
+       assignedToId: to.id,
+       assignedToName: to.name,
+       assignedToAddressFull: to.addressFull,
+       assignedToState: to.stateCode,
+       assignedAt: firebase.firestore.FieldValue.serverTimestamp()
+     });
+   });
+
+   const settingsRef = db.collection("settings").doc("global");
+   batch.set(settingsRef, {
+     revealEnabled: true,
+     lastAssignmentsAt: firebase.firestore.FieldValue.serverTimestamp()
+   }, { merge: true });
+
+   await batch.commit();
+
+   adminStatus.textContent = "Assignments committed and reveal has been enabled. Participants can now use their codes.";
+   adminStatus.classList.add("success");
+ } catch (err) {
+   console.error(err);
+   adminStatus.textContent = "Error committing assignments. Please try again.";
+   adminStatus.classList.add("error");
+   alert(adminStatus.textContent + (err && err.code ? " (" + err.code + ")" : ""));
+ }
+});
+
+// ========== CLEAR ALL SIGN-UPS & RESET (ADMIN) ==========
+
+const clearAllBtn = document.getElementById("clearAllBtn");
+
+clearAllBtn.addEventListener("click", async () => {
+ adminStatus.textContent = "";
+ adminStatus.className = "status";
+
+ const ok = await isApprovedAdmin(auth.currentUser);
+ if (!ok) {
+   adminStatus.textContent = "Not authorized.";
+   adminStatus.classList.add("error");
+   return;
+ }
+
+ const confirmed = confirm(
+   "This will delete ALL sign-ups and reset reveal settings.\n" +
+   "Only do this if you want to completely reset the swap.\n\n" +
+   "Are you sure?"
+ );
+ if (!confirmed) return;
+
+ try {
+   const snap = await db.collection("signups").get();
+   const batch = db.batch();
+
+   snap.forEach(doc => {
+     batch.delete(doc.ref);
+   });
+
+   const settingsRef = db.collection("settings").doc("global");
+   batch.set(settingsRef, {
+     revealEnabled: false,
+     lastAssignmentsAt: null
+   }, { merge: true });
+
+   await batch.commit();
+
+   previewTableBody.innerHTML = "";
+   previewParticipants = null;
+   previewAssignments = null;
+   selectedPreviewFromIndices.clear();
+
+   adminStatus.textContent = "All sign-ups cleared and swap reset.";
+   adminStatus.classList.add("success");
+ } catch (err) {
+   console.error(err);
+   adminStatus.textContent = "Error clearing sign-ups. Please try again.";
+   adminStatus.classList.add("error");
+   alert(adminStatus.textContent + (err && err.code ? " (" + err.code + ")" : ""));
+ }
+});
+
+function openPayment(method) {
+ const links = {
+   "PayPal": "https://paypal.me/donnapevey1",
+   "Cash App": "https://cash.app/$donnapevey",
+   "Venmo": "https://venmo.com/u/Donnapevey00"
+ };
+
+ const url = links[method];
+ if (url) {
+   window.open(url, "_blank", "noopener,noreferrer");
+ } else {
+   alert("Payment link not set for: " + method);
+ }
+}
+</script>
+</body>
+</html>
